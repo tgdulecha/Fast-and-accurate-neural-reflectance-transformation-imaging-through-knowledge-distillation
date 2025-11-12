@@ -45,22 +45,23 @@ python train.py --data_path data_path --src_img_type src_img_type --output_path 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; output_path  # Directory for saving outputs  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mask  # True or False, for Enable/disable masking  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; src_img_type  # Image extension type, i.e., jpg [default], png.  
-At the end of the training, the outputs will be saved inside the output-path directory, within the Teacher and Student subdirectories. Each subdirectory contains:
+At the end of the training, the outputs will be saved inside the output-path directory, inside the Teacher and Student subdirectories. Each subdirectory contains:
 - The trained model (.pth) 
 - Compressed coefficients
 - Image planes and a JSON file for OpenLIME visualization
 
-## Test/Relighting  
-### 1. Configure test parameters   
-Modify the following variables:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model_path # Path to the trained model directory  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; light_path   # Path to the test light direction and mask path, if needed  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;masked # Use mask during relighting or not, default=False
+## Testing/Relighting  
+  **Download, example, trained model files and test light direction file from <a href="https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/IgCgd69EOn9jS5eopO9BvviaARIdxmdPiriFBEWF3Hwdoqg?e=0lYgGU" text-decoration="none" target="_blank">here </a>**  
 
-### 2. Run:  
+
+###  Run:  
 ```bash
 python test.py  --model_path model_path  --light_path light_path
 ```  
+
+Where:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model_path # Path to the trained model directory and encoded coefficients  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; light_path   # test light directions  and mask path, if needed  
 
 For example, if you set: 
 ```bash 
@@ -73,8 +74,13 @@ but if you set:
 ```bash 
 light_path = 'test_dataset/test'
 ``` 
-Generates images relighted from 20 light directions defined in test_dataset/test/dirs.lp
+Generates images relighted from 20 light directions Which corresponds to images found 
+ <a href="https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/IgBQ2HC32WNZRYNcDlFqcJo9Aaj7m9vzgRE1fayoK48t3DE?e=6Mu0Ei" target="_blank"> here </a>.  
 
+
+
+
+ <!-- <a href="https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/EkVPviXq86VGjixc6Ti18SoBdkKTOeaWqBlQzV09rpdHfg?e=cY54V6" text-decoration="none" target="_blank">**here** </a>  -->
 
 
 ## Datasets:
