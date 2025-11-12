@@ -32,22 +32,20 @@ pip install -r requirements.txt
 pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu124
 ```
 ## Training
-###  1. Configure the training parameters
-   set the following variables:   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data_path   = "your_dataset_path/"  &nbsp; # Path to your training dataset  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; output_path = "output/"          &nbsp;    # Directory for saving outputs  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mask = True or False  &nbsp; # Enable/disable masking  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; src_img_type  # Image extension type, i.e., jpg [default], png, or tiff.
-
-**To Test training and testing** download a dataset from <a href="https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/EkVPviXq86VGjixc6Ti18SoBdkKTOeaWqBlQzV09rpdHfg?e=cY54V6" text-decoration="none" target="_blank">**here** </a> 
 
 
-### 2.  Run Training  
-   Execute:  
+
+To Train train a Fast and accurate neural reflectance transformation imaging through knowledge distillation   
+Execute:  
    ```bash
 python train.py --data_path data_path --src_img_type src_img_type --output_path output_path
    ```  
-After training, the outputs will be saved inside the output-path directory, within the Teacher and Student subdirectories. Each subdirectory contains:
+   Where:   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data_path  # Path to your training dataset  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; output_path  # Directory for saving outputs  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mask  # True or False, for Enable/disable masking  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; src_img_type  # Image extension type, i.e., jpg [default], png.  
+At the end of the training, the outputs will be saved inside the output-path directory, within the Teacher and Student subdirectories. Each subdirectory contains:
 - The trained model (.pth) 
 - Compressed coefficients
 - Image planes and a JSON file for OpenLIME visualization
