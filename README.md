@@ -16,7 +16,6 @@ This repository provides a **PyTorch implementation** of the paper
 **Fast and Accurate Neural Reflectance Transformation Imaging through Knowledge Distillation** published in *Computers & Graphics, Elsevier (2025)*.
 
 ---
----
 ## Getting Started
 
 Download
