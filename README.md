@@ -1,4 +1,6 @@
-# Fast-and-accurate-neural-reflectance-transformation-imaging-through-knowledge-distillation Implementation
+# Fast and accurate neural reflectance transformation imaging through knowledge distillation
+
+**PDF:**  <a href="https://doi.org/10.1016/j.cag.2025.104475" text-decoration="none" target="_blank">https://doi.org/10.1016/j.cag.2025.104475 </a>
 
 This is a PyTorch implementation of Fast-and-accurate-neural-reflectance-transformation-imaging-through-knowledge-distillation.
 
@@ -78,8 +80,8 @@ python test.py  --model_path model_path  --light_path light_path
 ```
 
 Where:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model_path # Path to the trained model directory and encoded coefficients  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; light_path # test light directions and mask path, if needed
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model_path is the Path to the trained model directory and encoded coefficients  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; light_path is the path to the test light directions and mask path, if needed
 
 For example, if you set:
 
@@ -109,19 +111,16 @@ All the images(training, test, and relighted using different algorithms) can be 
 ## Evaluation / Metrics
 
 For example, To reproduce Table 6 from the paper (Average LPIPS / ΔE for RealRTI relighting):
-
-### 1. Set a parameter
-
 Download RealRTI dataset from
 <a href="https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/EjRfAl2DeppAsDLDo5rkr0gBg1-54GrN3WYzLIKQRu2yPg?e=fbv2tp" target="_blank"> here </a>.
 
-### 2. Run
+### Run
 
 ```bash
 python python calculate_metrics.py --parent_folder parent_folder
 ```
 
-**set parent_folder to root folder, RealRTI, that contains all items subfolders.**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where parent_folder is the root folder, RealRTI, that contains all items subfolders.
 
 ```bash
 RealRTI/  #parent-folder
