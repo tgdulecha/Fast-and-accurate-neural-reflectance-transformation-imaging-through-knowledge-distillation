@@ -55,7 +55,7 @@ def relight(model_path, ld_file, mask_path=None):
             relighted_img = reconst_imgs.cpu().numpy()
 
             outputs = relighted_img.clip(min=0, max=1)
-            if mask:
+            if mask_path is not None:
                 relighted_img[masked_indices] = outputs
             else:
                 relighted_img = outputs
