@@ -1,5 +1,5 @@
 <div align="center"> 
-<p> <strong><span style="font-size:30px;"> Fast and Accurate Neural Reflectance Transformation Imaging through Knowledge Distillation</p> </span></strong> 
+<h2>Fast and Accurate Neural Reflectance Transformation Imaging through Knowledge Distillation</h2>
 <p> Tinsae G. Dulecha, Leonardo Righetto, Ruggero Pintus, Enrico Gobbetti, and Andrea Giachetti  </p>
  </div>
 
