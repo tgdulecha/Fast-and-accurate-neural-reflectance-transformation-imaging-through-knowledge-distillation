@@ -22,9 +22,9 @@ def main():
     )
 
     parser.add_argument(
-        "--masked",
-        action="store_true", default=False,
-        help="Use mask during relighting (default: False)."
+        "--mask_path",
+        action="store_true", default=None,
+        help="mask image path (default: None)."
     )
 
     # Parse arguments
@@ -34,7 +34,7 @@ def main():
     results = np.zeros((1, 2))
 
     # Run relight
-    relight(args.model_path, args.light_path, mask=args.masked)
+    relight(args.model_path, args.light_path, mask_path=args.mask_path)
 
 if __name__ == "__main__":
     main()

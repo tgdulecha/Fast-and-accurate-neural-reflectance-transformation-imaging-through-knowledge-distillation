@@ -2,7 +2,7 @@ import os
 import cv2 as cv
 import numpy as np
 import torch
-def relight(model_path, gt_path, mask=False):
+def relight(model_path, ld_file, mask_path=None):
     input_feature_path = model_path + '/coefficient.npy'
     est_path = 'relighted'
     if not os.path.exists(est_path):
@@ -13,14 +13,13 @@ def relight(model_path, gt_path, mask=False):
     device = "cpu"
     samples = torch.from_numpy(np.load(input_feature_path)).to(device)
     hw = samples.shape[0]
-    if mask:
-        mask_img = cv.imread(gt_path + '/mask.png', cv.IMREAD_GRAYSCALE)
+    if mask_path is not None:
+        mask_img = cv.imread(mask_path, cv.IMREAD_GRAYSCALE)
         _, binary_mask = cv.threshold(mask_img, 127, 255, cv.THRESH_BINARY)
         mask_img = binary_mask.flatten()
         masked_indices = np.squeeze(np.column_stack(np.where(mask_img == 255)))
 
     decoder = torch.load(model_path + '/decoder.pth').to(device)
-    ld_file = gt_path + '/dirs.lp'
     light_dimension = 2
 
     def get_lights(ld_file, light_dimension=2):

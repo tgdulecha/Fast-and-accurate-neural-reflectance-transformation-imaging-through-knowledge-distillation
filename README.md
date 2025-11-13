@@ -61,10 +61,10 @@ Where:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data_path # Path to your training dataset  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mask # True or False, for Enable/disable masking  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; src_img_type # Image extension type, i.e., jpg [default], png.  
-At the end of the training, the outputs will be saved in a parent directory with  a folder named outputs output-path directory, inside the Teacher and Student subdirectories. Each subdirectory contains:
+At the end of the training, the outputs will be saved in a working directory with  a folder named outputs. Inside you will find:
 
-- The trained model (.pth)
-- Compressed coefficients
+- The model (decoder.pth)
+- Compressed coefficients(coefficient.npy)
 - Image planes and a JSON file for OpenLIME visualization
 
 ## Testing/Relighting
@@ -74,12 +74,13 @@ At the end of the training, the outputs will be saved in a parent directory with
 ### Run:
 
 ```bash
-python test.py  --model_path model_path  --light_path light_path
+python test.py  --model_path model_path  --light_path light_path --mask_path mask_path
 ```
 
 Where:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model_path is the Path to the trained model directory and encoded coefficients  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; light_path is the path to the test light directions and mask path, if needed
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model_path is the Path to the training outputs folder that contains the decoder.pth, encoded.npy and plane images. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; light_path is the path to the test light directions 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mask_path is the path to the mask file if mask is used.
 
 For example, if you run:
 
