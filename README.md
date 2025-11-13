@@ -77,7 +77,7 @@ python train.py --data_path <path_to_dataset> --src_img_type <jpg|png> --mask <T
 | `--src_img_type` | Image format (default: `jpg`; supports `png`) |
 | `--mask` | Enable or disable masking (`True` or `False`) |
 
-**outputs**  
+**Outputs**  
 Training results will be saved in an outputs/ directory containing:  
 - decoder.pth: Trained model
 - coefficient.npy: Compressed coefficients
