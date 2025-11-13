@@ -120,6 +120,8 @@ The generated relighted images will be saved in a `relighted/` folder.
 
 👉 This output is also: [Available here](https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/IgBQ2HC32WNZRYNcDlFqcJo9Aaj7m9vzgRE1fayoK48t3DE?e=6Mu0Ei)
 
+ **Note:** The `test.py` script automatically detects CUDA availability and runs on GPU if available, otherwise it uses CPU. No additional configuration is required.
+
 ---
 
 ## Datasets:
