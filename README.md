@@ -61,7 +61,7 @@ Where:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data_path # Path to your training dataset  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mask # True or False, for Enable/disable masking  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; src_img_type # Image extension type, i.e., jpg [default], png.  
-At the end of the training, the outputs will be saved inside the output-path directory, inside the Teacher and Student subdirectories. Each subdirectory contains:
+At the end of the training, the outputs will be saved in a parent directory with  a folder named outputs output-path directory, inside the Teacher and Student subdirectories. Each subdirectory contains:
 
 - The trained model (.pth)
 - Compressed coefficients

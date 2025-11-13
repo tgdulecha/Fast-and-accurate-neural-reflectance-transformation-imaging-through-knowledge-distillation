@@ -39,17 +39,11 @@ def main():
    
 
     args = parser.parse_args()
-
-    # -----------------------------
-    # Core script logic
-    # -----------------------------
     t1 = time.time()
 
     teacher_spath = os.path.join('outputs/', 'Teacher')
-    student_spath = os.path.join('outputs/', 'Model_files')
 
     os.makedirs(teacher_spath, mode=0o777, exist_ok=True)
-    os.makedirs(student_spath, mode=0o777, exist_ok=True)
 
     # Initialize dataset
     mlic = MLIC(data_path=args.data_path, src_img_type=args.src_img_type, mask=args.mask)
@@ -105,33 +99,7 @@ def main():
 
     torch.save(decoder, decoder_fpath)
     torch.save(encoder, encoder_fpath)
-    encoder.eval()
-
-    with torch.no_grad():
-        reconst_imgs = encoder(input_samples)
-    features = reconst_imgs.cpu().numpy()
-    np.save(coeff_fpath, features)
-
-    max_f = [float(np.max(features[:, i])) for i in range(comp_coeff)]
-    min_f = [float(np.min(features[:, i])) for i in range(comp_coeff)]
-    bit_feat = 8
-    for i in range(comp_coeff):
-        features[:, i] = np.interp(features[:, i], (min_f[i], max_f[i]), (0, 2 ** bit_feat - 1))
-
-    if args.mask:
-        unmasked_features[masked_indices] = features
-    else:
-        unmasked_features = features
-
-    features = np.reshape(unmasked_features, (h, w, comp_coeff))
-
-    for j in range(comp_coeff // 3):
-        cv.imwrite(os.path.join(teacher_spath, f'plane_{j}.jpg'),
-                   features[..., 3 * j:3 * (j + 1)].astype(np.uint8))
-        cv.imwrite(os.path.join(teacher_spath, f'plane_{j}.png'),
-                   features[..., 3 * j:3 * (j + 1)].astype(np.uint8))
-
-    save_web_format(decoder_fpath, coeff_fpath, h, w, comp_coeff, teacher_spath, num_samples)
+    
 
     # -----------------------------
     # Train Student Network
@@ -146,17 +114,15 @@ def main():
                                                 temperature=1, alpha=alpha)
     trainer_distillation.fit(model_distillation, train_loader, valid_loader)
 
-    student_decoder_fpath = os.path.join(student_spath, "decoder.pth")
-    student_coeff_fpath = os.path.join(student_spath, "coefficient.npy")
 
     encoder_student = model_distillation.encoder
     decoder_student = model_distillation.decoder
-    torch.save(decoder_student, student_decoder_fpath)
+    torch.save(decoder_student, "outputs/decoder.pth")
 
     with torch.no_grad():
         reconst_imgs = encoder_student(input_samples)
     features = reconst_imgs.cpu().numpy()
-    np.save(student_coeff_fpath, features)
+    np.save("outputs/coefficient.npy", features)
 
     max_f = [float(np.max(features[:, i])) for i in range(comp_coeff)]
     min_f = [float(np.min(features[:, i])) for i in range(comp_coeff)]
@@ -171,12 +137,12 @@ def main():
     features = np.reshape(unmasked_features, (h, w, comp_coeff))
 
     for j in range(comp_coeff // 3):
-        cv.imwrite(os.path.join(student_spath, f'plane_{j}.jpg'),
+        cv.imwrite(os.path.join('outputs/', f'plane_{j}.jpg'),
                    features[..., 3 * j:3 * (j + 1)].astype(np.uint8))
-        cv.imwrite(os.path.join(student_spath, f'plane_{j}.png'),
+        cv.imwrite(os.path.join('outputs/', f'plane_{j}.png'),
                    features[..., 3 * j:3 * (j + 1)].astype(np.uint8))
 
-    save_web_format(student_decoder_fpath, student_coeff_fpath, h, w, comp_coeff, student_spath, num_samples)
+    save_web_format(h, w, comp_coeff,num_samples)
 
     t2 = time.time()
     print('done!')

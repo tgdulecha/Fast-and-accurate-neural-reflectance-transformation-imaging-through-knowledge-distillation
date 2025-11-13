@@ -5,9 +5,9 @@ from modules.utils.utils import save_model_json
 import json
 
 
-def save_web_format(decoder_fpath, coeff_fpath, h, w, comp_coeff, json_dir, samples):
-    decoder_path = torch.load(decoder_fpath)
-    features = np.load(coeff_fpath)
+def save_web_format(h, w, comp_coeff, samples):
+    decoder_path = torch.load("outputs/decoder.pth")
+    features = np.load("outputs/coefficient.npy")
 
     w_list, b_list = save_model_json(decoder_path)
     max_f = [float(np.max(features[:, i])) for i in range(comp_coeff)]
@@ -28,5 +28,5 @@ def save_web_format(decoder_fpath, coeff_fpath, h, w, comp_coeff, json_dir, samp
 
     }
 
-    with open(json_dir + '/info.json', 'w') as f:
+    with open( "outputs/info.json", 'w') as f:
         json.dump(info, f)
