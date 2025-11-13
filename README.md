@@ -1,21 +1,9 @@
 # Fast and accurate neural reflectance transformation imaging through knowledge distillation 
-**📄 Paper DOI:** [https://doi.org/10.1016/j.cag.2025.104475](https://doi.org/10.1016/j.cag.2025.104475)
+**PDF:**  <a href="https://doi.org/10.1016/j.cag.2025.104475" text-decoration="none" target="_blank">https://doi.org/10.1016/j.cag.2025.104475 </a>
 
-This repository provides a **PyTorch implementation** of the paper  
-**“Fast and Accurate Neural Reflectance Transformation Imaging through Knowledge Distillation”**  
-by *Tinsae G. Dulecha, Leonardo Righetto, Ruggero Pintus, Enrico Gobbetti, and Andrea Giachetti*  
-published in *Computers & Graphics, Elsevier (2025)*.
+This is a PyTorch implementation of Fast-and-accurate-neural-reflectance-transformation-imaging-through-knowledge-distillation.
 
 ---
-
-## <div align="center">Abstract</div>
-
-<p align="justify">
-Reflectance Transformation Imaging (RTI) is very popular for its ability to visually analyze surfaces by enhancing surface details through interactive relighting, starting from only a few tens of photographs taken with a fixed camera and variable illumination. Traditional methods like Polynomial Texture Maps (PTM) and Hemispherical Harmonics (HSH) are compact and fast, but struggle to accurately capture complex reflectance fields using few per-pixel coefficients and fixed bases, leading to artifacts, especially in highly reflective or shadowed areas. The NeuralRTI approach, which exploits a neural autoencoder to learn a compact function that better approximates the local reflectance as a function of light directions, has been shown to produce superior quality at comparable storage cost. However, as it performs interactive relighting with custom decoder networks with many parameters, the rendering step is computationally expensive and not feasible at full resolution for large images on limited hardware. <b>Earlier attempts to reduce costs by directly training smaller networks have failed to produce valid results.</b> For this reason, we propose to reduce its computational cost through a novel solution based on Knowledge Distillation (<b>DISK-NeuralRTI</b>). Starting from a teacher network that can be one of the original Neural RTI methods or a more complex solution, <b>DISK-NeuralRTI</b> can create a student architecture with a simplified decoder network that preserves image quality and has computational cost compatible with real-time web-based visualization of large surfaces. Experimental results show that we can obtain a student prediction that is on par or more accurate than the existing NeuralRTI solutions with up to 80% parameter reduction. Using a novel benchmark of high-resolution Multi-Light image collections (RealRTIHR), we also tested the usability of a web-based visualization tool based on our simplified decoder for realistic surface inspection tasks. The results show that the solution reaches interactive frame rates without the necessity of using progressive rendering with image quality loss.
-</p>
-
----
-
 ## Getting Started
 
 Download
@@ -133,11 +121,12 @@ All the images(training, test, and relighted using different algorithms) can be 
 <a href="https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/Er4M2DWps1FDjLce2Ssd3pYByROXPOKOeeYATFjhl261cQ?e=0ClcJ9" text-decoration="none" target="_blank"> DiskNeuralRTI Datasets </a>.
 
 ## Evaluation / Metrics
-To reproduce **Table 6** from the paper (Average LPIPS / ΔE for RealRTI relighting):  
-1. Download the RealRTI dataset from  
-   [here](https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/EjRfAl2DeppAsDLDo5rkr0gBg1-54GrN3WYzLIKQRu2yPg?e=fbv2tp)
 
-2. Run:
+For example, To reproduce Table 6 from the paper (Average LPIPS / ΔE for RealRTI relighting):
+Download RealRTI dataset from
+<a href="https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/EjRfAl2DeppAsDLDo5rkr0gBg1-54GrN3WYzLIKQRu2yPg?e=fbv2tp" target="_blank"> here </a>.
+
+### Run
 
 ```bash
 python calculate_metrics.py --parent_folder <path_to_RealRTI>
