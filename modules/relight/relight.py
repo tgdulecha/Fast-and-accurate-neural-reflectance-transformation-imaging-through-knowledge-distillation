@@ -9,8 +9,8 @@ def relight(model_path, ld_file, mask_path=None):
         os.makedirs(est_path)
 
     [h, w] = cv.imread(model_path + '/plane_0.jpg', 0).shape
-    #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    device = "cpu"
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    #device = "cpu"
     samples = torch.from_numpy(np.load(input_feature_path)).to(device)
     hw = samples.shape[0]
     if mask_path is not None:
@@ -19,7 +19,7 @@ def relight(model_path, ld_file, mask_path=None):
         mask_img = binary_mask.flatten()
         masked_indices = np.squeeze(np.column_stack(np.where(mask_img == 255)))
 
-    decoder = torch.load(model_path + '/decoder.pth').to(device)
+    decoder = torch.load(model_path + '/decoder.pth', map_location=device).to(device)
     light_dimension = 2
 
     def get_lights(ld_file, light_dimension=2):

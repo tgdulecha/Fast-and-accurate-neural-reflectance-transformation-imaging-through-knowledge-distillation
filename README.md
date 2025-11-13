@@ -83,6 +83,7 @@ Training results will be saved in an outputs/ directory containing:
 - coefficient.npy: Compressed coefficients
 - Image planes and a JSON file for OpenLIME visualization  
 
+The training was implemented using PyTorch on four **NVIDIA Ampere A100 GPUs (64GB each)**.
 ## Testing/Relighting
 
 Download example model files and test light directions from [this link](https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/IgCgd69EOn9jS5eopO9BvviaARIdxmdPiriFBEWF3Hwdoqg?e=0lYgGU).
