@@ -114,13 +114,7 @@ python test.py --model_path test_files/model_files --light_path test_files/test_
 # Generate relighted images from 20 light directions
 python test.py --model_path test_files/model_files --light_path test_files/test_dirs.lp
 ```
-**Arguments:**
 
-| Argument | Description |
-|-----------|-------------|
-| `--model_path` | Path to folder containing `decoder.pth`, `encoded.npy`, and plane images |
-| `--light_path` | Path to test light direction file |
-| `--mask_path` | Optional path to mask file (if masking was used) |
 The generated relighted images will be saved in a `relighted/` folder.
 
 👉 This output is also: [Available here](https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/IgBQ2HC32WNZRYNcDlFqcJo9Aaj7m9vzgRE1fayoK48t3DE?e=6Mu0Ei)
