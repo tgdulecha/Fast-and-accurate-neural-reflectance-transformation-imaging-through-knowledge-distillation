@@ -123,8 +123,7 @@ All the images(training, test, and relighted using different algorithms) can be 
 
 ## Evaluation / Metrics
 To reproduce **Table 6** from the paper (Average LPIPS / ΔE for RealRTI relighting):  
-1. Download the RealRTI dataset from  
-   [here](https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/EjRfAl2DeppAsDLDo5rkr0gBg1-54GrN3WYzLIKQRu2yPg?e=fbv2tp)
+1. Download the RealRTI dataset from [here](https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/EjRfAl2DeppAsDLDo5rkr0gBg1-54GrN3WYzLIKQRu2yPg?e=fbv2tp)
 
 2. Run:
 
