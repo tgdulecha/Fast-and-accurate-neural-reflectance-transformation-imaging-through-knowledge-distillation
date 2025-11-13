@@ -1,5 +1,6 @@
 # Fast and accurate neural reflectance transformation imaging through knowledge distillation 
-**PDF:**  <a href="https://doi.org/10.1016/j.cag.2025.104475" text-decoration="none" target="_blank">https://doi.org/10.1016/j.cag.2025.104475 </a>
+**📄 Paper DOI:** [https://doi.org/10.1016/j.cag.2025.104475](https://doi.org/10.1016/j.cag.2025.104475)
+
 
 This is a PyTorch implementation of Fast-and-accurate-neural-reflectance-transformation-imaging-through-knowledge-distillation.
 
