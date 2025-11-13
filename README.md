@@ -1,5 +1,4 @@
-# Fast and accurate neural reflectance transformation imaging through knowledge distillation
-
+# Fast and accurate neural reflectance transformation imaging through knowledge distillation 
 **PDF:**  <a href="https://doi.org/10.1016/j.cag.2025.104475" text-decoration="none" target="_blank">https://doi.org/10.1016/j.cag.2025.104475 </a>
 
 This is a PyTorch implementation of Fast-and-accurate-neural-reflectance-transformation-imaging-through-knowledge-distillation.
@@ -83,22 +82,22 @@ Where:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model_path is the Path to the trained model directory and encoded coefficients  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; light_path is the path to the test light directions and mask path, if needed
 
-For example, if you set:
+For example, if you run:
 
 ```bash
-model_path=test_dataset/outputs/Student
-light_path = test_dataset/test_fig6 and
+python test.py  --model_path test_files/model_files  --light_path test_files/test_dir.lp
+
 ```
 
-This will generate images shown in figure 6 on the paper and saves it in the relighted folder.
+It will generate images shown in figure 6 on the paper and saves it in a relighted folder in working directory.
 
-but if you set:
+but if you run:
 
 ```bash
-light_path = 'test_dataset/test'
+python test.py  --model_path test_files/model_files  --light_path test_files/test_dirs.lp
 ```
 
-Generates images relighted from 20 light directions Which corresponds to images found
+It generates images relighted from 20 light directions Which corresponds to images found
 <a href="https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/IgBQ2HC32WNZRYNcDlFqcJo9Aaj7m9vzgRE1fayoK48t3DE?e=6Mu0Ei" target="_blank"> here </a>.
 
  <!-- <a href="https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/EkVPviXq86VGjixc6Ti18SoBdkKTOeaWqBlQzV09rpdHfg?e=cY54V6" text-decoration="none" target="_blank">**here** </a>  -->

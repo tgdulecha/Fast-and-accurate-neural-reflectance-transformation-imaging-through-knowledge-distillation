@@ -46,7 +46,7 @@ def main():
     t1 = time.time()
 
     teacher_spath = os.path.join(args.output_path, 'Teacher')
-    student_spath = os.path.join(args.output_path, 'Student')
+    student_spath = os.path.join(args.output_path, 'Model_files')
 
     os.makedirs(teacher_spath, mode=0o777, exist_ok=True)
     os.makedirs(student_spath, mode=0o777, exist_ok=True)
@@ -183,7 +183,8 @@ def main():
     t2 = time.time()
     print('done!')
     print(f'--- {int(t2 - t1) // 60 // 60} h {int(t2 - t1) // 60 % 60} m {int(t2 - t1) % 60} s ---')
-
+    os.rmdir('lightning_logs', ignore_errors=True)
+    os.rmdir(teacher_spath, ignore_errors=True)
 
 if __name__ == "__main__":
     main()
