@@ -35,8 +35,7 @@ def main():
                         help="Use mask during training (default: False).", default=False)
     parser.add_argument("--src_img_type", type=str, default="jpg",
                         help="Source image type (e.g. png, jpg).")
-    parser.add_argument("--output_path", type=str, default="outputs",
-                        help="Directory to save Teacher and Student models.")
+   
 
     args = parser.parse_args()
 
@@ -45,8 +44,8 @@ def main():
     # -----------------------------
     t1 = time.time()
 
-    teacher_spath = os.path.join(args.output_path, 'Teacher')
-    student_spath = os.path.join(args.output_path, 'Model_files')
+    teacher_spath = os.path.join('outputs/', 'Teacher')
+    student_spath = os.path.join('outputs/', 'Model_files')
 
     os.makedirs(teacher_spath, mode=0o777, exist_ok=True)
     os.makedirs(student_spath, mode=0o777, exist_ok=True)

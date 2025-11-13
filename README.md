@@ -54,12 +54,11 @@ To Train train a Fast and accurate neural reflectance transformation imaging thr
 Execute:
 
 ```bash
-python train.py --data_path data_path --src_img_type src_img_type --output_path output_path
+python train.py --data_path data_path --src_img_type src_img_type 
 ```
 
 Where:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data_path # Path to your training dataset  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; output_path # Directory for saving outputs  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mask # True or False, for Enable/disable masking  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; src_img_type # Image extension type, i.e., jpg [default], png.  
 At the end of the training, the outputs will be saved inside the output-path directory, inside the Teacher and Student subdirectories. Each subdirectory contains:
