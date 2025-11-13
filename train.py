@@ -8,6 +8,7 @@ lr_monitor = LearningRateMonitor(logging_interval='epoch')
 import cv2 as cv
 import os
 import torch.nn
+import shutil
 import numpy as np
 from torch.utils.data import DataLoader
 import time
@@ -146,7 +147,6 @@ def main():
     trainer_distillation.fit(model_distillation, train_loader, valid_loader)
 
     student_decoder_fpath = os.path.join(student_spath, "decoder.pth")
-    student_encoder_fpath = os.path.join(student_spath, "encoder.pth")
     student_coeff_fpath = os.path.join(student_spath, "coefficient.npy")
 
     encoder_student = model_distillation.encoder
@@ -176,14 +176,12 @@ def main():
         cv.imwrite(os.path.join(student_spath, f'plane_{j}.png'),
                    features[..., 3 * j:3 * (j + 1)].astype(np.uint8))
 
-    torch.save(encoder_student, student_encoder_fpath)
     save_web_format(student_decoder_fpath, student_coeff_fpath, h, w, comp_coeff, student_spath, num_samples)
 
     t2 = time.time()
     print('done!')
     print(f'--- {int(t2 - t1) // 60 // 60} h {int(t2 - t1) // 60 % 60} m {int(t2 - t1) % 60} s ---')
-    os.rmdir('lightning_logs', ignore_errors=True)
-    os.rmdir(teacher_spath, ignore_errors=True)
-
+    shutil.rmtree(teacher_spath)
+    shutil.rmtree('lightning_logs')
 if __name__ == "__main__":
     main()

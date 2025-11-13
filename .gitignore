@@ -4,6 +4,7 @@
 
 # --- Virtual Environments ---
 neuralenv/
+Outputs/
 External Libraries
 venv/
 .venv/
