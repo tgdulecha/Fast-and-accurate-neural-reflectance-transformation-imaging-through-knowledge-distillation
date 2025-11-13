@@ -5,8 +5,6 @@ This repository contains the official PyTorch implementation of the method prese
 **Fast and Accurate Neural Reflectance Transformation Imaging through Knowledge Distillation**.
 
 ---
-This is a PyTorch implementation of Fast-and-accurate-neural-reflectance-transformation-imaging-through-knowledge-distillation.
-
 ## Getting Started
 
 Download
