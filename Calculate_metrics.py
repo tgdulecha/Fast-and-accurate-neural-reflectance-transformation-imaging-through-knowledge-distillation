@@ -58,7 +58,7 @@ def main():
                 gt_path = sorted(glob.glob(os.path.join(parent_folder, item, "test", "*.jpg")))
 
                 if not est_path or not gt_path:
-                    print(f"⚠️ Skipping {item}/{m}: missing images.")
+                    print(f" Skipping {item}/{m}: missing images.")
                     continue
 
                 lpips_val = calculate_LPIPS(gt_path, est_path)
