@@ -11,11 +11,11 @@ Reflectance Transformation Imaging (RTI) is very popular for its ability to visu
 
 **📄 Paper DOI:** [https://doi.org/10.1016/j.cag.2025.104475](https://doi.org/10.1016/j.cag.2025.104475)
 
-
 This repository provides a **PyTorch implementation** of the paper
-**Fast and Accurate Neural Reflectance Transformation Imaging through Knowledge Distillation** published in *Computers & Graphics, Elsevier (2025)*.
+**Fast and Accurate Neural Reflectance Transformation Imaging through Knowledge Distillation** published in _Computers & Graphics, Elsevier (2025)_.
 
 ---
+
 ## Getting Started
 
 Download
@@ -64,30 +64,30 @@ pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https
 
 To Train train the model, run:
 
-
 ```bash
 python train.py --data_path <path_to_dataset> --src_img_type <jpg|png> --mask <True|False>
 ```
 
 **Arguments:**
 
-| Argument | Description |
-|-----------|--------------|
-| `--data_path` | Path to your training dataset |
+| Argument         | Description                                   |
+| ---------------- | --------------------------------------------- |
+| `--data_path`    | Path to your training dataset                 |
 | `--src_img_type` | Image format (default: `jpg`; supports `png`) |
-| `--mask` | Enable or disable masking (`True` or `False`) |
+| `--mask`         | Enable or disable masking (`True` or `False`) |
 
 **Outputs**  
-Training results will be saved in an outputs/ directory containing:  
+Training results will be saved in an outputs/ directory containing:
+
 - decoder.pth: Trained model
 - coefficient.npy: Compressed coefficients
-- Image planes and a JSON file for OpenLIME visualization  
+- Image planes and a JSON file for OpenLIME visualization
 
 The training was implemented using PyTorch on four **NVIDIA Ampere A100 GPUs (64GB each)**.
+
 ## Testing/Relighting
 
 Download example model files and test light directions from [this link](https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/IgCgd69EOn9jS5eopO9BvviaARIdxmdPiriFBEWF3Hwdoqg?e=0lYgGU).
- 
 
 ### Run:
 
@@ -98,11 +98,11 @@ python test.py --model_path <path_to_model_files> --light_path <path_to_light_fi
 
 **Arguments:**
 
-| Argument | Description |
-|-----------|-------------|
+| Argument       | Description                                                              |
+| -------------- | ------------------------------------------------------------------------ |
 | `--model_path` | Path to folder containing `decoder.pth`, `encoded.npy`, and plane images |
-| `--light_path` | Path to test light direction file |
-| `--mask_path` | Optional path to mask file (if masking was used) |
+| `--light_path` | Path to test light direction file                                        |
+| `--mask_path`  | Optional path to mask file (if masking was used)                         |
 
 **Examples:**
 
@@ -120,7 +120,7 @@ The generated relighted images will be saved in a `relighted/` folder.
 
 👉 This output is also: [Available here](https://univr-my.sharepoint.com/:f:/g/personal/tinsaegebrechristos_dulecha_univr_it/IgBQ2HC32WNZRYNcDlFqcJo9Aaj7m9vzgRE1fayoK48t3DE?e=6Mu0Ei)
 
- **Note:** The `test.py` script automatically detects CUDA availability and runs on GPU if available, otherwise it uses CPU. No additional configuration is required.
+**Note:** The `test.py` script automatically detects CUDA availability and runs on GPU if available, otherwise it uses CPU. No additional configuration is required.
 
 ---
 
@@ -143,10 +143,9 @@ python calculate_metrics.py --parent_folder <path_to_RealRTI>
 
 **Argument:**
 
-| Argument | Description |
-|-----------|-------------|
+| Argument          | Description                               |
+| ----------------- | ----------------------------------------- |
 | `--parent_folder` | Path to folder RealRTI items, shown below |
-
 
 ```bash
 RealRTI/  #parent-folder
