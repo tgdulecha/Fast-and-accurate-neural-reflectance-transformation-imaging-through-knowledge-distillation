@@ -41,6 +41,8 @@ def main():
         col_names.remove("train")
     if "test" in col_names:
         col_names.remove("test")
+    if "outputs" in col_names:
+        col_names.remove("outputs")
 
 
     result_store_deltaE = np.zeros((len(subfolders) + 1, len(col_names)))
@@ -51,6 +53,8 @@ def main():
         subsubfolders = list_subfolders(os.path.join(parent_folder, item))
         if "train" in subsubfolders:
             subsubfolders.remove("train")
+        if "outputs" in subsubfolders:
+            subsubfolders.remove("outputs")
 
         for mindx, m in enumerate(subsubfolders):
             if m != "test":
